@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: C:\Users\kauas\git_poo\poo-rc-bloco-c-kauatavaares\myrep\.tko\cache\poo\Readme.md
-  cache_timestamp: '2025-11-02 18:42:12'
+  cache_timestamp: '2025-11-11 19:17:23'
   filters:
   - listas
 expanded:
@@ -23,7 +23,7 @@ flags:
   quests: 0
   tracks: 0
   tasks: 0
-  graph: 0
+  graph: 1
   xray: 0
 lang: py
-selected: poo@array
+selected: poo@budega

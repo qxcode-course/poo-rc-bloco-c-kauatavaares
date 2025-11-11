@@ -2,8 +2,13 @@
     "patches": [
         {
             "label": "2025-10-30_15-07-54",
-            "content": "",
+            "content": "@@ -1,220 +0,0 @@\n-class Cliente:%0A    def __init__(self, nome: str):%0A        self.__nome = nome%0A%0A    def getNome(self):%0A        return self.__nome%0A%0A    def __str__(self):%0A        return self.__nome%0A%0Aclass Mercantil:%0A    def __init__(self):\n",
             "lines": "0"
+        },
+        {
+            "label": "2025-11-11_19-17-28",
+            "content": "class Cliente:\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    def __str__(self):\n        return self.__nome\n\nclass Mercantil:\n    def __init__(self):",
+            "lines": "12"
         }
     ]
 }

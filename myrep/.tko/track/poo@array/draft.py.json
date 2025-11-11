@@ -2,8 +2,28 @@
     "patches": [
         {
             "label": "2025-10-30_15-07-50",
-            "content": "",
+            "content": "@@ -1,70 +0,0 @@\n-class Foo:%0A    def __init__(self, x: int):%0A        self.x = x%0A        \n",
             "lines": "0"
+        },
+        {
+            "label": "2025-11-10_13-17-44",
+            "content": "@@ -1,19 +1,4 @@\n-import random%0A%0A\n clas\n@@ -27,19 +27,17 @@\n _(self, \n-num\n+x\n : int):%0A\n@@ -53,359 +53,18 @@\n elf.\n-num = num%0A%0A    def __str__(self):%0A        return f%22%7Bself.num%7D%22%0A%0Alista_int_vazia: list%5Bint%5D = %5B%5D%0Alista_obj_vazia: list%5BFoo%5D = %5B%5D%0A%0Alista_int = %5B1, 2, 3, 4, 5%5D%0Alista_obj = %5BFoo(1), Foo(2), Foo(3)%5D%0A%0Aprint(len(lista_int))%0Aprint(len(lista_obj))%0A%0Alista_int.append(6)%0Alista_obj.append(Foo(4))%0A%0Aprint(%22Apos append:%22)%0Aprint(lista_obj_vazia)%0Aprint(lista_int_vazia)%0A%0A\n+x = x%0A        \n",
+            "lines": "4"
+        },
+        {
+            "label": "2025-11-10_13-46-32",
+            "content": "@@ -7,16 +7,17 @@\n  random%0A\n+%0A\n class Fo\n@@ -132,57 +132,8 @@\n um%7D%22\n-%0A    def __repr__(self):%0A        return str(self)\n %0A%0Ali\n@@ -208,25 +208,12 @@\n _int\n-:list%5Bint%5D\n  = %5B\n-0 ,\n 1, 2\n@@ -236,18 +236,8 @@\n _obj\n-:list%5BFoo%5D\n  = %5B\n@@ -260,16 +260,17 @@\n Foo(3)%5D%0A\n+%0A\n print(le\n@@ -315,22 +315,16 @@\n ista_int\n-_vazia\n .append(\n@@ -351,16 +351,17 @@\n Foo(4))%0A\n+%0A\n print(%22A\n@@ -389,16 +389,22 @@\n ista_obj\n+_vazia\n )%0Aprint(\n@@ -423,1157 +423,6 @@\n zia)\n-%0A%0Alista_int.pop()%0Alista_obj.pop()%0Aprint(%22Apos o pop:%22)%0Aprint(lista_int)%0Aprint(lista_obj)%0A%0Alista_int.insert(0, -1)%0Alista_obj.insert(0, Foo(5))%0Aprint(%22apos o insert:%22)%0Aprint(lista_int)%0Aprint(lista_obj)%0A%0Alista_int.remove(2)%0Alista_obj.remove(lista_obj%5B2%5D)%0Aprint(%22Apos o remove:%22)%0Aprint(lista_int)%0Aprint(lista_obj)%0A%0Alist_random_int:list%5Bint%5D = %5Brandom.randint(0, 50) for _ in range(6)%5D%0Aprint(%22Random array:%22)%0Aprint(list_random_int)%0A%0Alist_sequencia:list%5Bint%5D = list(range(10))%0Aprint(%22Sequencia de array:%22)%0Aprint(list_sequencia)%0A%0Aprint(%22Acessando os elementos:%22)%0Aprint(%22Quinto numero:%22, list_sequencia%5B5%5D)%0Aprint(%22Ultimo numero:%22, list_sequencia%5B-1%5D)%0A%0Aprint(%22Array como string(join by -):%22)%0Aprint(%22-%22.join(map(str, list_sequencia)))%0A%0Alist_sequencia_pares:list%5Bint%5D = %5Bx for x in list_sequencia if x %25 2 == 0%5D%0Aprint(%22Array com elementos pares:%22)%0Aprint(list_sequencia_pares)%0A%0Alist_sequencia.sort(reverse=True)%0Aprint(%22Array em ordem decrescente:%22)%0Aprint(list_sequencia)%0A%0A%0Anum = int(input(%22Digite um numero para buscar na lista:%22))%0Aif num in list_sequencia:%0A    print(f%22O numero %7Bnum%7D foi encontrado %22)%0Aelse:%0A    print(f%22O numero %7Bnum%7D nao foi encontrado%22)%0A%0A%0A%0A%0A%0A%0A\n %0A%0A\n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-11-10_15-53-35",
+            "content": "@@ -1358,158 +1358,8 @@\n s)%0A%0A\n-list_sequencia_quadrado: list%5Bint%5D = %5Bx ** 2 for x in list_sequencia_pares%5D%0Aprint(%22Array elevando eles ao quadrado:%22)%0Aprint(list_sequencia_quadrado)%0A%0A\n list\n",
+            "lines": "79"
+        },
+        {
+            "label": "2025-11-10_15-57-23",
+            "content": "import random\nclass Foo:\n    def __init__(self, num: int):\n        self.num = num\n\n    def __str__(self):\n        return f\"{self.num}\"\n    def __repr__(self):\n        return str(self)\n\nlista_int_vazia: list[int] = []\nlista_obj_vazia: list[Foo] = []\n\nlista_int:list[int] = [0 ,1, 2, 3, 4, 5]\nlista_obj:list[Foo] = [Foo(1), Foo(2), Foo(3)]\nprint(len(lista_int))\nprint(len(lista_obj))\n\nlista_int_vazia.append(6)\nlista_obj.append(Foo(4))\nprint(\"Apos append:\")\nprint(lista_obj)\nprint(lista_int_vazia)\n\nlista_int.pop()\nlista_obj.pop()\nprint(\"Apos o pop:\")\nprint(lista_int)\nprint(lista_obj)\n\nlista_int.insert(0, -1)\nlista_obj.insert(0, Foo(5))\nprint(\"apos o insert:\")\nprint(lista_int)\nprint(lista_obj)\n\nlista_int.remove(2)\nlista_obj.remove(lista_obj[2])\nprint(\"Apos o remove:\")\nprint(lista_int)\nprint(lista_obj)\n\nlist_random_int:list[int] = [random.randint(0, 50) for _ in range(6)]\nprint(\"Random array:\")\nprint(list_random_int)\n\nlist_sequencia:list[int] = list(range(10))\nprint(\"Sequencia de array:\")\nprint(list_sequencia)\n\nprint(\"Acessando os elementos:\")\nprint(\"Quinto numero:\", list_sequencia[5])\nprint(\"Ultimo numero:\", list_sequencia[-1])\n\nprint(\"Array como string(join by -):\")\nprint(\"-\".join(map(str, list_sequencia)))\n\nlist_sequencia_pares:list[int] = [x for x in list_sequencia if x % 2 == 0]\nprint(\"Array com elementos pares:\")\nprint(list_sequencia_pares)\n\nlist_sequencia_quadrado: list[int] = [x ** 2 for x in list_sequencia_pares]\nprint(\"Array elevando eles ao quadrado:\")\nprint(list_sequencia_quadrado)\n\nlist_sequencia.sort(reverse=True)\nprint(\"Array em ordem decrescente:\")\nprint(list_sequencia)\n\n\nnum = int(input(\"Digite um numero para buscar na lista:\"))\nif num in list_sequencia:\n    print(f\"O numero {num} foi encontrado \")\nelse:\n    print(f\"O numero {num} nao foi encontrado\")\n\n\n\n\n\n\n\n\n",
+            "lines": "83"
         }
     ]
 }
