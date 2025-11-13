@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: C:\Users\kauas\git_poo\poo-rc-bloco-c-kauatavaares\myrep\.tko\cache\poo\Readme.md
-  cache_timestamp: '2025-11-13 14:37:39'
+  cache_timestamp: '2025-11-13 19:33:56'
   filters:
   - listas
 expanded:

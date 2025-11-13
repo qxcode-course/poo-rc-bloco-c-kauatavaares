@@ -53,7 +53,26 @@ class Lapiseira:
             return
         consumo = self.tip.gastoPorFolha()
         if self.tip.tamanho < 10:
-            print("fail: tamanho da folha acabou")
+            print("fail: folha incompleta")
+            self.tip.tamanho = 10
+        else:
+            self.tip.tamanho -= consumo
+
+    def __str__(self):
+            tip_str = str(self.tip) if self.tip else "-----"
+            barrel_str = ", ".join(str(l) for l in self.barrel)
+            return f"Calibre: {self.calibre}\nBico: {tip_str}\nTambor: [{barrel_str}]"
+
+def main():
+    lapiseira = Lapiseira
+    while True:
+        line = input()
+        print("$" + line)
+        args = line.split()
+
+        if args[0] == "init":
+            lapiseira
+
 
 
 
