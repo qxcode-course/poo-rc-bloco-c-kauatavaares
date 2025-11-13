@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-13_09-26-52",
+            "content": "@@ -1,271 +0,0 @@\n-class Grafite:%0A    def __init__(self, calibre: float, dureza: str, tamanho: int):%0A        self.calibre = calibre%0A        self.dureza = dureza%0A        self.tamanho = tamanho%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Aclass Lapiseira:%0A    def __init__(self, calibre: float):%0A        self.calibre = calibre\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-11-13_09-35-06",
+            "content": "@@ -171,125 +171,8 @@\n ho%0A%0A\n-    def __str__(self):%0A        return f%22%7Bself.calibre%7D:%7Bself.dureza%7D:%7Bself.tamanho%7D%22%0A%0A    def gastoPorFolha(self):%0A%0A%0A\n %0A%0A%0A%0A\n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-11-13_14-11-30",
+            "content": "@@ -286,1196 +286,103 @@\n f):%0A\n-        grafites = %7B%22HB%22: 1, %222B%22: 2, %224B%22: 4, %226B%22: 6%7D%0A        return grafites.get(self.dureza, 0)%0A%0A%0Aclass Lapiseira:%0A    def __init__(self, calibre: float):%0A        self.calibre = calibre%0A        self.tip: Grafite %7C None = None%0A        self.barrel:list %5BGrafite%5D = %5B%5D%0A%0A    def insert(self, grafite: Grafite) -%3E bool:%0A        if grafite.calibre != self.calibre:%0A            print(%22fail: nao tem esse calibre%22)%0A            return False%0A        self.barrel.append(grafite)%0A        return True%0A%0A    def remove(self) -%3E Grafite %7C None:%0A        if self.tip is None:%0A            print(%22fail: bico vazio%22)%0A            return None%0A        graf_removido = self.tip%0A        self.tip = None%0A        return graf_removido%0A%0A    def pull(self) -%3E bool:%0A        if self.tip is not None:%0A            print(%22fail: ja tem grafite%22)%0A            return False%0A        elif not self.barrel:%0A            print(%22fail: sem grafite%22)%0A            return False%0A        self.tip = self.barrel.pop(0)%0A        return True%0A%0A    def writePage(self):%0A        if self.tip is None:%0A            print(%22fail: nao tem grafite%22)%0A            return%0A        elif self.tip.tamanho %3C= 10:%0A            print(%22fail: acabou o grafite%22)%0A%0A%0A%0A\n+%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Aclass Lapiseira:%0A    def __init__(self, calibre: float):%0A        self.calibre = calibre\n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-11-13_15-19-17",
+            "content": "@@ -1475,182 +1475,7 @@\n e%22)%0A\n-            self.tip = None%0A            return%0A        consumo = self.tip.gastoPorFolha()%0A        if self.tip.tamanho %3C 10:%0A            print(%22fail: tamanho da folha acabou%22)%0A\n %0A%0A%0A\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-13_15-31-21",
+            "content": "class Grafite:\n    def __init__(self, calibre: float, dureza: str, tamanho: int):\n        self.calibre = calibre\n        self.dureza = dureza\n        self.tamanho = tamanho\n\n    def __str__(self):\n        return f\"{self.calibre}:{self.dureza}:{self.tamanho}\"\n\n    def gastoPorFolha(self):\n        grafites = {\"HB\": 1, \"2B\": 2, \"4B\": 4, \"6B\": 6}\n        return grafites.get(self.dureza, 0)\n\n\nclass Lapiseira:\n    def __init__(self, calibre: float):\n        self.calibre = calibre\n        self.tip: Grafite | None = None\n        self.barrel:list [Grafite] = []\n\n    def insert(self, grafite: Grafite) -> bool:\n        if grafite.calibre != self.calibre:\n            print(\"fail: nao tem esse calibre\")\n            return False\n        self.barrel.append(grafite)\n        return True\n\n    def remove(self) -> Grafite | None:\n        if self.tip is None:\n            print(\"fail: bico vazio\")\n            return None\n        graf_removido = self.tip\n        self.tip = None\n        return graf_removido\n\n    def pull(self) -> bool:\n        if self.tip is not None:\n            print(\"fail: ja tem grafite\")\n            return False\n        elif not self.barrel:\n            print(\"fail: sem grafite\")\n            return False\n        self.tip = self.barrel.pop(0)\n        return True\n\n    def writePage(self):\n        if self.tip is None:\n            print(\"fail: nao tem grafite\")\n            return\n        elif self.tip.tamanho <= 10:\n            print(\"fail: acabou o grafite\")\n            self.tip = None\n            return\n        consumo = self.tip.gastoPorFolha()\n        if self.tip.tamanho < 10:\n            print(\"fail: tamanho da folha acabou\")\n\n\n\n",
+            "lines": "59"
+        }
+    ]
+}

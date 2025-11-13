@@ -12,14 +12,14 @@ sources:
   type: clone
   branch: master
   cache_path: C:\Users\kauas\git_poo\poo-rc-bloco-c-kauatavaares\myrep\.tko\cache\poo\Readme.md
-  cache_timestamp: '2025-11-12 15:31:43'
+  cache_timestamp: '2025-11-13 14:37:39'
   filters:
   - listas
 expanded:
 - poo@campanha-principal
 - poo@bloco_c-listas
 tasks:
-  poo@budega: '{rate:20}'
+  poo@budega: '{rate:100, human:sim, iagen:sim, guide:sim, other:nao, alone:10}'
 flags:
   quests: 0
   tracks: 0
@@ -27,4 +27,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: poo@budega
+selected: poo@lapiseira

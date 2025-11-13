@@ -28,13 +28,13 @@ class Mercantil:
             return
         self.__caixas[caixa_index] = self.__fila.pop(0)
     def finish(self, caixa_index: int):
-        if caixa_index < 0 or caixa_index >= len(self.__caixas):
+        if 0 <= caixa_index < len(self.__caixas):
+            if self.__caixas[caixa_index] is None:
+                print("fail: caixa vazio")
+            else:
+                self.__caixas[caixa_index] = None
+        else:
             print("fail: caixa inexistente")
-            return
-        elif self.__caixas[caixa_index] in None:
-            print("fail: caixa vazio")
-            return
-        self.__caixas[caixa_index] = None
 
     def __str__(self, cliente=Cliente):
         caixa_str = [str(cliente) if cliente else "-----" for cliente in self.__caixas]
