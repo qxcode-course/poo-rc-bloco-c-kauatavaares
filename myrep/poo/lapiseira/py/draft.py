@@ -18,12 +18,13 @@ class Lapiseira:
         self.tip: Grafite | None = None
         self.barrel:list [Grafite] = []
 
-    def insert(self, grafite: Grafite) -> bool:
-        if grafite.calibre != self.calibre:
-            print("fail: nao tem esse calibre")
-            return False
+    def insert(self, calibre: float, dureza: str, tamanho: int):
+        if calibre != self.calibre:
+            print("fail: calibre incompatível")
+            return
+        grafite = Grafite(calibre, dureza, tamanho)
         self.barrel.append(grafite)
-        return True
+
 
     def remove(self) -> Grafite | None:
         if self.tip is None:
@@ -35,7 +36,7 @@ class Lapiseira:
 
     def pull(self) -> bool:
         if self.tip is not None:
-            print("fail: ja tem grafite")
+            print("fail: ja existe grafite no bico")
             return False
         elif not self.barrel:
             print("fail: sem grafite")
@@ -45,33 +46,48 @@ class Lapiseira:
 
     def writePage(self):
         if self.tip is None:
-            print("fail: nao tem grafite")
+            print("fail: nao existe grafite no bico")
             return
         elif self.tip.tamanho <= 10:
-            print("fail: acabou o grafite")
+            print("fail: tamanho insuficiente")
             self.tip = None
             return
         consumo = self.tip.gastoPorFolha()
-        if self.tip.tamanho < 10:
+        if self.tip.tamanho - consumo < 10:
             print("fail: folha incompleta")
             self.tip.tamanho = 10
+            return
         else:
             self.tip.tamanho -= consumo
 
     def __str__(self):
-            tip_str = str(self.tip) if self.tip else "-----"
-            barrel_str = ", ".join(str(l) for l in self.barrel)
-            return f"Calibre: {self.calibre}\nBico: {tip_str}\nTambor: [{barrel_str}]"
+            tip_str = f"[{self.tip}]" if self.tip else "[]"
+            barrel_str = "".join(f"[{l}]" for l in self.barrel)
+            return f"calibre: {self.calibre}, bico: {tip_str}, tambor: <{barrel_str}>"
 
 def main():
-    lapiseira = Lapiseira
     while True:
         line = input()
         print("$" + line)
         args = line.split()
 
-        if args[0] == "init":
-            lapiseira
+        if args[0] == "end":
+            break
+        elif args[0] == "init":
+            lapiseira = Lapiseira(float(args[1]))
+        elif args[0] == "show":
+            print(lapiseira)
+        elif args[0] == "insert":
+           lapiseira.insert(float(args[1]), args[2], int(args[3]))
+        elif args[0] == "pull":
+            lapiseira.pull()
+        elif args[0] == "remove":
+            lapiseira.remove()
+        elif args[0] == "write":
+            lapiseira.writePage()
+
+main()
+
 
 
 
