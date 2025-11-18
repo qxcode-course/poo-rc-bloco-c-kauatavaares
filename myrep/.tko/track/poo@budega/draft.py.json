@@ -207,6 +207,26 @@
         },
         {
             "label": "2025-11-13_09-24-13",
+            "content": "@@ -2039,16 +2039,17 @@\n 0%5D == %22e\n+n\n d%22:%0A    \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-17_16-25-24",
+            "content": "@@ -657,16 +657,18 @@\n ixa inex\n+is\n tente%22)%0A\n@@ -2039,17 +2039,16 @@\n 0%5D == %22e\n-n\n d%22:%0A    \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-17_16-25-39",
+            "content": "@@ -649,34 +649,32 @@\n fail: caixa inex\n-is\n tente%22)%0A        \n@@ -766,16 +766,19 @@\n (%22fail: \n+cai\n xa ocupa\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-17_16-25-59",
+            "content": "@@ -768,19 +768,16 @@\n (%22fail: \n-cai\n xa ocupa\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-17_16-26-58",
             "content": "class Cliente:\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    def __str__(self):\n        return self.__nome\n\nclass Mercantil:\n    def __init__(self, qtd_caixas: int):\n        self.__caixas:list[Cliente|None] = [None] * qtd_caixas\n        self.__fila:list[Cliente|None] = []\n\n    def addPessoa(self, cliente:Cliente):\n        self.__fila.append(cliente)\n\n    def callCliente(self, caixa_index: int):\n        if not self.__fila:\n            print(\"fail: sem clientes\")\n            return\n        elif  caixa_index < 0 or caixa_index >= len(self.__caixas):\n                print(\"fail: caixa inexistente\")\n                return\n        elif self.__caixas[caixa_index] is not None:\n            print(\"fail: caixa ocupado\")\n            return\n        self.__caixas[caixa_index] = self.__fila.pop(0)\n    def finish(self, caixa_index: int):\n        if 0 <= caixa_index < len(self.__caixas):\n            if self.__caixas[caixa_index] is None:\n                print(\"fail: caixa vazio\")\n            else:\n                self.__caixas[caixa_index] = None\n        else:\n            print(\"fail: caixa inexistente\")\n\n    def __str__(self, cliente=Cliente):\n        caixa_str = [str(cliente) if cliente else \"-----\" for cliente in self.__caixas]\n        fila_str = [str(cliente) for cliente in self.__fila]\n        return f\"Caixas: [{\", \".join(caixa_str)}]\\nEspera: [{\", \".join(fila_str)}]\"\n\ndef main():\n    while True:\n        cliente = Cliente\n        line = input()\n        print(\"$\" + line)\n        args = line.split(\" \")\n        if args[0] == \"init\":\n            mercantil = Mercantil(int(args[1]))\n        elif args[0] == \"show\":\n            print(mercantil)\n        elif args[0] == \"arrive\":\n            nome = args[1]\n            cliente = Cliente(nome)\n            mercantil.addPessoa(cliente)\n        elif args[0] == \"call\":\n            mercantil.callCliente(int(args[1]))\n        elif args[0] == \"finish\":\n            mercantil.finish(int(args[1]))\n        elif args[0] == \"end\":\n            break\n        else:\n            print(\"fail:\")\n\nif __name__ == '__main__':\n    main()",
             "lines": "68"
         }
