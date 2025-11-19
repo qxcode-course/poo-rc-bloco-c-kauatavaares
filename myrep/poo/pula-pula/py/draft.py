@@ -28,15 +28,59 @@ class TrampoLine:
 
     def addKid(self, kid: Kid):
         self.__wainting.append(kid)
-        self.__wainting.sort(key=lambda k: k.getAge())
+        self.__wainting.sort(key=lambda k: k.get_Age())
 
     def enter(self):
         if not self.__wainting:
             raise ValueError("fail: fila vazia")
-        else:
-            self.__playing.append(self.__wainting.pop(-1))
-            self.__playing.sort(key=lambda k: k.getAge())
+        kid = self.__wainting.pop(-1)
+        self.__playing.append(kid)
+        self.__playing.sort(key=lambda k: k.get_Age())
+    def leave(self):
+        if self.__playing:
+            kid = self.__playing.pop(-1)
+            self.__wainting.append(kid)
+            self.__wainting.sort(key=lambda k: k.get_Age(), reverse = True)
+    def remove(self, name: str):
+        for lista in (self.__playing, self.__wainting):
+            for kid in lista:
+                if kid.getName() == name:
+                    lista.remove(kid)
+                    return
+        print(f"fail: {name} nao esta no pula-pula")
+        return
 
-    def
+    def __str__(self):
+        playing = ", ".join([str(kid) for kid in self.__playing])
+        waiting = ", ".join([str(kid) for kid in self.__wainting])
+        return f"[{waiting}] => [{playing}]"
+
+def main():
+    trampolin = TrampoLine()
+    while True:
+            line = input()
+            print("$" + line)
+            args = line.split()
+            if args[0] == "end":
+                break
+            elif args[0] == "arrive":
+                name = args[1]
+                age = int(args[2])
+                kid = Kid(name, age)
+                trampolin.addKid(kid)
+            elif args[0] == "enter":
+                trampolin.enter()
+            elif args[0] == "show":
+                print(trampolin)
+            elif args[0] == "remove":
+                trampolin.remove(args[1])
+            elif args[0] == "leave":
+                trampolin.leave()
+            else:
+                print("fail: comando invalido")
+
+
+main()
+
 
 
